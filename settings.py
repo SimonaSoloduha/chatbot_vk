@@ -1,5 +1,5 @@
 GROUP_ID = 198185838
-TOKEN = 'ec0a50658c1650568f636a8e75240890899a149852e790ffa709fc278c0a587cb6a299fa3713c9ffe140a'
+TOKEN = ''
 INTENTS = [
     {
         "name": "Дата проведения",

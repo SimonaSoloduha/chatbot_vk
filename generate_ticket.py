@@ -19,13 +19,11 @@ def generate_ticket(name, email):
     draw.text(NAME_OFFSET, name, font=font, fill=BLACK)
     draw.text(EMAIL_OFFSET, email, font=font, fill=BLACK)
 
-    # response = requests.get(url=f"https://eu.ui-avatars.com/api/?name={name}")
     response = requests.get(url=f"https://ui-avatars.com/api/?size=96&name={name}&font-size=0.33&background=17bee3"
                                 f"&color=fff&rounded=true")
 
     avatar_file_like = BytesIO(response.content)
     avatar = Image.open(avatar_file_like)
-    # avatar.save('files/avatar_for_test.png', 'png')
 
     base.paste(avatar, AVATAR_OFFSET)
 
@@ -34,12 +32,3 @@ def generate_ticket(name, email):
     temp_file.seek(0)
 
     return temp_file
-
-
-# print(generate_ticket('name', 'email'))
-
-# def test_image_generation(self):
-#     ticket_file = generate_ticket('name', 'email')
-#https://ui-avatars.com/api/?size=96&name=name&font-size=0.33&background=17bee3"&color=fff&rounded=true
-#     with open('files/ticket_example.png', 'rb') as expected_file:
-#         assert ticket_file.read() == expected_file.read()

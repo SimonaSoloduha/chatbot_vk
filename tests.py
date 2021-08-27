@@ -6,9 +6,8 @@ from pony.orm import db_session, rollback
 from vk_api.bot_longpoll import VkBotMessageEvent, VkBotEvent
 
 from bot import Bot
-import vk_api
 
-from chatbot import settings
+import settings
 from generate_ticket import generate_ticket
 
 
@@ -67,7 +66,6 @@ class Test1(TestCase):
         settings.INTENTS[1]['answer'],
         settings.SCENARIOS['registration']['steps']['step1']['text'],
         settings.SCENARIOS['registration']['steps']['step2']['text'],
-        # settings.SCENARIOS['registration']['steps']['step2']['failure_text'],
         settings.SCENARIOS['registration']['steps']['step3']['text'].format(name='Вениамин', email='email@email.ru')
     ]
 
@@ -114,23 +112,3 @@ class Test1(TestCase):
             expected_bytes = expected_file.read()
 
         assert ticket_file.read() == expected_bytes
-
-
-
-
-    # def test_on_event(self):
-    #     event = VkBotMessageEvent(raw=self.RAW_EVENT)
-    #     send_mock = Mock()
-    #
-    #     with patch('bot.vk_api.VkApi'):
-    #         with patch('bot.VkBotLongPoll'):
-    #             bot = Bot("", "")
-    #             bot.api = Mock()
-    #             bot.send_image = Mock()
-    #             bot.api.messages.send = send_mock
-    #             bot.on_event(event)
-    #
-    #     send_mock.assert_called_once_with(
-    #         message=self.RAW_EVENT['object']['message']['text'],
-    #         random_id=ANY,
-    #         peer_id=str(self.RAW_EVENT['object']['message']['peer_id']))

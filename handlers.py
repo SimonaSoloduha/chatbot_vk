@@ -1,11 +1,6 @@
-"""
-Handler - функция, которая принимает на вход text (текст входящего сообщения) и контекст (dict), а возвращает bool:
- True если шаг пройден, False если данные введены неправильно.
-"""
-
 import re
 
-from chatbot.generate_ticket import generate_ticket
+from generate_ticket import generate_ticket
 
 re_name = re.compile(r'^[\w\-\s]{3,40}$')
 re_email = re.compile(r"(\b[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+\b)")
